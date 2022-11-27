@@ -28,4 +28,10 @@ composer install
 php artisan config:cache
 ```
 
-5. Selamat mencoba... :)
+5. Dokumentasi API
+
+```bash
+https://documenter.getpostman.com/view/14479523/2s83zjqhfy
+```
+
+6. Selamat mencoba... :)
