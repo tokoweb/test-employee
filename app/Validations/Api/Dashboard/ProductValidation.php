@@ -45,7 +45,7 @@ class ProductValidation
 
         $validate = [
             'name' => ['required'],
-            'price' => ['required'],
+            'price' => ['required', 'numeric'],
         ];
 
         $request->validate($validate);
@@ -73,7 +73,7 @@ class ProductValidation
         $validate = [
             'product_id' => ['required', 'exists:products,id'],
             'name' => ['required'],
-            'price' => ['required'],
+            'price' => ['required', 'numeric'],
         ];
 
         $request->validate($validate);
