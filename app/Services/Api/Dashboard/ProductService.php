@@ -62,6 +62,12 @@ class ProductService
             'price' => $request->price,
         ];
 
+        $filename = Product::saveImage($request);
+
+        if ($filename) {
+            $data['image'] = $filename;
+        }
+
         $product = Product::create($data);
 
         $product = Product::firstWhere('id', $product->id);
@@ -91,6 +97,13 @@ class ProductService
             'price' => $request->price,
         ];
 
+        $filename = Product::saveImage($request);
+
+        if ($filename) {
+            Product::deleteImage($request->product_id);
+            $data['image'] = $filename;
+        }
+
         $product = Product::where('id', $request->product_id)->update($data);
 
         $product = Product::firstWhere('id', $request->product_id);
@@ -114,6 +127,7 @@ class ProductService
      */
     public function destroy($id)
     {
+        Product::deleteImage($id);
         Product::where('id', $id)->delete();
 
         $status = true;

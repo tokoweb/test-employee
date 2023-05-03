@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('price');
+
+            $table->string('image')
+                ->nullable();
+
             $table->timestamps();
         });
     }
